@@ -50,7 +50,7 @@ foldersRouter
     .all((req, res, next) => {
         FoldersService.getById(
             req.app.get('db'),
-            req.patams.folder_id
+            req.params.folder_id
         )
             .then(folder => { 
                 if(!folder) {

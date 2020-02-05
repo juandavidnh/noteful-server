@@ -23,7 +23,7 @@ notesRouter
         })
         .catch(next)
     })
-    .post(jsonParse, (req, res, next) => {
+    .post(jsonParser, (req, res, next) => {
         const { note_name, modified, content, folder_id } = req.body
         const newNote = { note_name, content, folder_id } 
 
@@ -71,7 +71,7 @@ notesRouter
     .get((req, res, next) => {
         res.json(serializeNote(res.note))
     })
-    .delete(
+    .delete((req, res, next) => {
         NotesService.deleteNote(
             req.app.get('db'),
             req.params.note_id
@@ -80,10 +80,10 @@ notesRouter
                 res.status(204).end()
             })
             .catch(next)
-    )
+        })
     .patch(jsonParser, (req, res, next) => {
-        const { note_name, content } = req.body
-        const noteToUpdate = { note_name, content }
+        const { note_name, content, folder_id } = req.body
+        const noteToUpdate = { note_name, content, folder_id }
 
         const numberOfValues = Object.values(noteToUpdate).filter(Boolean).length
         if (numberOfValues === 0) 
@@ -93,7 +93,7 @@ notesRouter
                 }
             })
         
-        NotesService.updateComment(
+        NotesService.updateNote(
             req.app.get('db'),
             req.params.note_id,
             noteToUpdate
