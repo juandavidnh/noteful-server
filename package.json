@@ -33,5 +33,8 @@
     "nodemon": "^2.0.2",
     "postgrator-cli": "^3.3.0",
     "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "12.14.0"
   }
 }
