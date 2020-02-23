@@ -13,9 +13,14 @@ const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'dev';
 
+const corsOption = {
+    origin: 'https://noteful-app.juandavidnh93.now.sh/',
+    optionsSuccessStatus: 200
+  }
+
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors())
+app.use(cors(corsOption))
 
 app.get('/', (req, res) => {
     res.send('Hello, boilerplate!')

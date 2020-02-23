@@ -56,8 +56,8 @@ notesRouter
         NotesService.getById(
             req.app.get('db'),
             req.params.note_id
-        )
-            .then(note => {
+        )    
+        .then(note => {
                 if(!note){
                     return res.status(404).json({
                         error: { message: `Note doesn't exist` }
