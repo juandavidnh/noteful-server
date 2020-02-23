@@ -40,8 +40,6 @@ app.use(function validateBearerToken(req, res, next){
     next()
 })
 
-
-
 app.options('*', cors(corsOption))
 
 app.use('/api/folders', foldersRouter)
