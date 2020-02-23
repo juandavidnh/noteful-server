@@ -78,7 +78,7 @@ notesRouter
             req.params.note_id
         )
             .then(note => {
-                res.send("OK Response");
+                res.status(204).end();
             })
             .catch(next)
         })
@@ -100,7 +100,7 @@ notesRouter
             noteToUpdate
         )
             .then(numRowsAffected => {
-                res.send("OK Response");
+                res.status(204).end();
             })
             .catch(next)
     })
