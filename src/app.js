@@ -16,7 +16,7 @@ const morganOption = (NODE_ENV === 'production')
 const corsOption = {
     "origin": true,
     "methods": ['GET', 'PUT', 'POST', 'DELETE'],
-    "preflightContinue": true
+    "preflightContinue": false
   }
 
 app.use(morgan(morganOption))
