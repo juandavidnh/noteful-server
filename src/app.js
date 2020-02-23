@@ -19,7 +19,7 @@ const corsOption = {
     "preflightContinue": true,
     "credentials": true,
     "allowedHeaders": ['Content-Type', 'Authorization'],
-    "optionsSuccessStatus": 201
+    "optionsSuccessStatus": 200
   }
 
 app.use(morgan(morganOption))
