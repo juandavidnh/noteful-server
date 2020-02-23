@@ -45,7 +45,7 @@ notesRouter
                 res
                     .status(201)
                     .location(path.posix.join(req.originalUrl, `/${note.id}`))
-                    .send({})
+                    .send("OK Response")
             })
             .catch(next)
     })
@@ -77,7 +77,7 @@ notesRouter
             req.params.note_id
         )
             .then(note => {
-                res.status(204).send({});
+                res.status(204).send("OK Response");
             })
             .catch(next)
         })
@@ -99,7 +99,7 @@ notesRouter
             noteToUpdate
         )
             .then(numRowsAffected => {
-                res.status(204).send({});
+                res.status(204).send("OK Response");
             })
             .catch(next)
     })
