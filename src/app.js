@@ -25,6 +25,7 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors(corsOption))
 
+app.options('*', cors())
 app.get('/', (req, res) => {
     res.send('Hello, boilerplate!')
 })
@@ -40,7 +41,7 @@ app.use(function validateBearerToken(req, res, next){
     next()
 })
 
-app.options('*', cors())
+
 
 
 app.use('/api/folders', foldersRouter)
