@@ -76,9 +76,9 @@ notesRouter
             req.app.get('db'),
             req.params.note_id
         )
-            .then(res => {
-                res.status(201)
-                    .json("note deleted.")
+            .then(note => {
+                res.json("note deleted");
+
                 next()
             })
             .catch(next)
