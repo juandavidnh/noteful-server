@@ -46,6 +46,7 @@ notesRouter
                     .status(201)
                     .location(path.posix.join(req.originalUrl, `/${note.id}`))
                     .json(serializeNote(note))
+                    .send({})
             })
             .catch(next)
     })
@@ -77,9 +78,9 @@ notesRouter
             req.params.note_id
         )
             .then(note => {
-                res.json("note deleted");
+                
 
-                next()
+
             })
             .catch(next)
         })
@@ -101,7 +102,7 @@ notesRouter
             noteToUpdate
         )
             .then(numRowsAffected => {
-                res.status(204).end()
+                res.status(204).send({});
             })
             .catch(next)
     })
