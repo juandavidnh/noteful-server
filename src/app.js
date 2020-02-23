@@ -16,7 +16,7 @@ const morganOption = (NODE_ENV === 'production')
 const corsOption = {
     "origin": "*",
     "methods": ['GET', 'PUT', 'POST', 'DELETE'],
-    "preflightContinue": false,
+    "preflightContinue": true,
     "credentials": true,
     "allowedHeaders": ['Content-Type', 'Authorization']
   }
@@ -25,6 +25,7 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors(corsOption))
 
+app.options('*', cors())
 app.get('/', (req, res) => {
     res.send('Hello, boilerplate!')
 })
