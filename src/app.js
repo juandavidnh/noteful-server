@@ -14,7 +14,9 @@ const morganOption = (NODE_ENV === 'production')
   : 'dev';
 
 const corsOption = {
-    origin: 'https://noteful-app.juandavidnh93.now.sh'
+    origin: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE'],
+    
   }
 
 app.use(morgan(morganOption))
