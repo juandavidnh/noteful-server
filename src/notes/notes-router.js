@@ -43,7 +43,6 @@ notesRouter
         )
             .then(note => {
                 res
-                    .status(200)
                     .location(path.posix.join(req.originalUrl, `/${note.id}`))
                     .json({
                         message: "note added"
@@ -79,7 +78,7 @@ notesRouter
             req.params.note_id
         )
             .then(note => {
-                res.status(200).send("OK Response");
+                res.send("OK Response");
             })
             .catch(next)
         })
@@ -101,7 +100,7 @@ notesRouter
             noteToUpdate
         )
             .then(numRowsAffected => {
-                res.status(200).send("OK Response");
+                res.send("OK Response");
             })
             .catch(next)
     })
