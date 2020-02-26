@@ -78,7 +78,7 @@ notesRouter
             req.params.note_id
         )
             .then(note => {
-                res.status(204).end();
+                res.status(201).json({message: 'note deleted'});
             })
             .catch(next)
         })
