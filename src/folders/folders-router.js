@@ -40,9 +40,7 @@ foldersRouter
                 res 
                     .status(201)
                     .location(path.posix.join(req.originalUrl, `/${folder.id}`))
-                    .json({
-                        message: "folder added"
-                    })
+                    .json(serializeFolder(folder))
             })
             .catch(next)
     })
